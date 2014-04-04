@@ -1,6 +1,8 @@
 Select2
 =======
 
+**IMPORTANT:** This version renames the CSS class prefixes used from `select2` to `wave-select2`.
+
 Select2 is a jQuery-based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
 
 To get started, checkout examples and documentation at http://ivaynberg.github.com/select2

@@ -1,7 +1,7 @@
 /*
 Version: @@ver@@ Timestamp: @@timestamp@@
 */
-.select2-container {
+.wave-select2-container {
     margin: 0;
     position: relative;
     display: inline-block;
@@ -11,10 +11,10 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     vertical-align: middle;
 }
 
-.select2-container,
-.select2-drop,
-.select2-search,
-.select2-search input {
+.wave-select2-container,
+.wave-select2-drop,
+.wave-select2-search,
+.wave-select2-search input {
   /*
     Force border-box so that % widths fit the parent
     container without overlap because of margin/padding.
@@ -25,7 +25,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
           box-sizing: border-box; /* css3 */
 }
 
-.select2-container .select2-choice {
+.wave-select2-container .wave-select2-choice {
     display: block;
     height: 26px;
     padding: 0 0 0 8px;
@@ -56,7 +56,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background-image: linear-gradient(to top, #eee 0%, #fff 50%);
 }
 
-.select2-container.select2-drop-above .select2-choice {
+.wave-select2-container.wave-select2-drop-above .wave-select2-choice {
     border-bottom-color: #aaa;
 
     border-radius: 0 0 4px 4px;
@@ -68,11 +68,11 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background-image: linear-gradient(to bottom, #eee 0%, #fff 90%);
 }
 
-.select2-container.select2-allowclear .select2-choice .select2-chosen {
+.wave-select2-container.wave-select2-allowclear .wave-select2-choice .wave-select2-chosen {
     margin-right: 42px;
 }
 
-.select2-container .select2-choice > .select2-chosen {
+.wave-select2-container .wave-select2-choice > .wave-select2-chosen {
     margin-right: 26px;
     display: block;
     overflow: hidden;
@@ -84,7 +84,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     width: auto;
 }
 
-.select2-container .select2-choice abbr {
+.wave-select2-container .wave-select2-choice abbr {
     display: none;
     width: 12px;
     height: 12px;
@@ -101,16 +101,16 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     outline: 0;
 }
 
-.select2-container.select2-allowclear .select2-choice abbr {
+.wave-select2-container.wave-select2-allowclear .wave-select2-choice abbr {
     display: inline-block;
 }
 
-.select2-container .select2-choice abbr:hover {
+.wave-select2-container .wave-select2-choice abbr:hover {
     background-position: right -11px;
     cursor: pointer;
 }
 
-.select2-drop-mask {
+.wave-select2-drop-mask {
     border: 0;
     margin: 0;
     padding: 0;
@@ -128,7 +128,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     filter: alpha(opacity=0);
 }
 
-.select2-drop {
+.wave-select2-drop {
     width: 100%;
     margin-top: -1px;
     position: absolute;
@@ -146,7 +146,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
             box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
 }
 
-.select2-drop.select2-drop-above {
+.wave-select2-drop.wave-select2-drop-above {
     margin-top: 1px;
     border-top: 1px solid #aaa;
     border-bottom: 0;
@@ -157,25 +157,25 @@ Version: @@ver@@ Timestamp: @@timestamp@@
             box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
 }
 
-.select2-drop-active {
+.wave-select2-drop-active {
     border: 1px solid #5897fb;
     border-top: none;
 }
 
-.select2-drop.select2-drop-above.select2-drop-active {
+.wave-select2-drop.wave-select2-drop-above.wave-select2-drop-active {
     border-top: 1px solid #5897fb;
 }
 
-.select2-drop-auto-width {
+.wave-select2-drop-auto-width {
     border-top: 1px solid #aaa;
     width: auto;
 }
 
-.select2-drop-auto-width .select2-search {
+.wave-select2-drop-auto-width .wave-select2-search {
     padding-top: 4px;
 }
 
-.select2-container .select2-choice .select2-arrow {
+.wave-select2-container .wave-select2-choice .wave-select2-arrow {
     display: inline-block;
     width: 18px;
     height: 100%;
@@ -196,14 +196,14 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background-image: linear-gradient(to top, #ccc 0%, #eee 60%);
 }
 
-.select2-container .select2-choice .select2-arrow b {
+.wave-select2-container .wave-select2-choice .wave-select2-arrow b {
     display: block;
     width: 100%;
     height: 100%;
     background: url('select2.png') no-repeat 0 1px;
 }
 
-.select2-search {
+.wave-select2-search {
     display: inline-block;
     width: 100%;
     min-height: 26px;
@@ -217,7 +217,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     white-space: nowrap;
 }
 
-.select2-search input {
+.wave-select2-search input {
     width: 100%;
     height: auto !important;
     min-height: 26px;
@@ -241,11 +241,11 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background: url('select2.png') no-repeat 100% -22px, linear-gradient(to bottom, #fff 85%, #eee 99%) 0 0;
 }
 
-.select2-drop.select2-drop-above .select2-search input {
+.wave-select2-drop.wave-select2-drop-above .wave-select2-search input {
     margin-top: 4px;
 }
 
-.select2-search input.select2-active {
+.wave-select2-search input.wave-select2-active {
     background: #fff url('select2-spinner.gif') no-repeat 100%;
     background: url('select2-spinner.gif') no-repeat 100%, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, #fff), color-stop(0.99, #eee));
     background: url('select2-spinner.gif') no-repeat 100%, -webkit-linear-gradient(center bottom, #fff 85%, #eee 99%);
@@ -253,8 +253,8 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background: url('select2-spinner.gif') no-repeat 100%, linear-gradient(to bottom, #fff 85%, #eee 99%) 0 0;
 }
 
-.select2-container-active .select2-choice,
-.select2-container-active .select2-choices {
+.wave-select2-container-active .wave-select2-choice,
+.wave-select2-container-active .wave-select2-choices {
     border: 1px solid #5897fb;
     outline: none;
 
@@ -262,7 +262,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
             box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
-.select2-dropdown-open .select2-choice {
+.wave-select2-dropdown-open .wave-select2-choice {
     border-bottom-color: transparent;
     -webkit-box-shadow: 0 1px 0 #fff inset;
             box-shadow: 0 1px 0 #fff inset;
@@ -278,8 +278,8 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background-image: linear-gradient(to top, #fff 0%, #eee 50%);
 }
 
-.select2-dropdown-open.select2-drop-above .select2-choice,
-.select2-dropdown-open.select2-drop-above .select2-choices {
+.wave-select2-dropdown-open.wave-select2-drop-above .wave-select2-choice,
+.wave-select2-dropdown-open.wave-select2-drop-above .wave-select2-choices {
     border: 1px solid #5897fb;
     border-top-color: transparent;
 
@@ -290,16 +290,16 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     background-image: linear-gradient(to bottom, #fff 0%, #eee 50%);
 }
 
-.select2-dropdown-open .select2-choice .select2-arrow {
+.wave-select2-dropdown-open .wave-select2-choice .wave-select2-arrow {
     background: transparent;
     border-left: none;
     filter: none;
 }
-.select2-dropdown-open .select2-choice .select2-arrow b {
+.wave-select2-dropdown-open .wave-select2-choice .wave-select2-arrow b {
     background-position: -18px 1px;
 }
 
-.select2-hidden-accessible {
+.wave-select2-hidden-accessible {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -311,7 +311,7 @@ Version: @@ver@@ Timestamp: @@timestamp@@
 }
 
 /* results */
-.select2-results {
+.wave-select2-results {
     max-height: 200px;
     padding: 0 0 0 4px;
     margin: 4px 4px 4px 0;
@@ -321,22 +321,22 @@ Version: @@ver@@ Timestamp: @@timestamp@@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.select2-results ul.select2-result-sub {
+.wave-select2-results ul.wave-select2-result-sub {
     margin: 0;
     padding-left: 0;
 }
 
-.select2-results li {
+.wave-select2-results li {
     list-style: none;
     display: list-item;
     background-image: none;
 }
 
-.select2-results li.select2-result-with-children > .select2-result-label {
+.wave-select2-results li.wave-select2-result-with-children > .wave-select2-result-label {
     font-weight: bold;
 }
 
-.select2-results .select2-result-label {
+.wave-select2-results .wave-select2-result-label {
     padding: 3px 7px 4px;
     margin: 0;
     cursor: pointer;
@@ -350,39 +350,39 @@ Version: @@ver@@ Timestamp: @@timestamp@@
               user-select: none;
 }
 
-.select2-results-dept-0 .select2-result-label { padding-left: 20px }
-.select2-results-dept-1 .select2-result-label { padding-left: 40px }
-.select2-results-dept-2 .select2-result-label { padding-left: 60px }
-.select2-results-dept-3 .select2-result-label { padding-left: 80px }
-.select2-results-dept-4 .select2-result-label { padding-left: 100px }
-.select2-results-dept-5 .select2-result-label { padding-left: 110px }
-.select2-results-dept-6 .select2-result-label { padding-left: 120px }
+.wave-select2-results-dept-0 .wave-select2-result-label { padding-left: 20px }
+.wave-select2-results-dept-1 .wave-select2-result-label { padding-left: 40px }
+.wave-select2-results-dept-2 .wave-select2-result-label { padding-left: 60px }
+.wave-select2-results-dept-3 .wave-select2-result-label { padding-left: 80px }
+.wave-select2-results-dept-4 .wave-select2-result-label { padding-left: 100px }
+.wave-select2-results-dept-5 .wave-select2-result-label { padding-left: 110px }
+.wave-select2-results-dept-6 .wave-select2-result-label { padding-left: 120px }
 
 
 
-.select2-results .select2-highlighted {
+.wave-select2-results .wave-select2-highlighted {
     background: #3875d7;
     color: #fff;
 }
 
-.select2-results li em {
+.wave-select2-results li em {
     background: #feffde;
     font-style: normal;
 }
 
-.select2-results .select2-highlighted em {
+.wave-select2-results .wave-select2-highlighted em {
     background: transparent;
 }
 
-.select2-results .select2-highlighted ul {
+.wave-select2-results .wave-select2-highlighted ul {
     background: #fff;
     color: #000;
 }
 
 
-.select2-results .select2-no-results,
-.select2-results .select2-searching,
-.select2-results .select2-selection-limit {
+.wave-select2-results .wave-select2-no-results,
+.wave-select2-results .wave-select2-searching,
+.wave-select2-results .wave-select2-selection-limit {
     background: #f4f4f4;
     display: list-item;
     padding-left: 5px;
@@ -391,54 +391,54 @@ Version: @@ver@@ Timestamp: @@timestamp@@
 /*
 disabled look for disabled choices in the results dropdown
 */
-.select2-results .select2-disabled.select2-highlighted {
+.wave-select2-results .wave-select2-disabled.wave-select2-highlighted {
     color: #666;
     background: #f4f4f4;
     display: list-item;
     cursor: default;
 }
-.select2-results .select2-disabled {
+.wave-select2-results .wave-select2-disabled {
   background: #f4f4f4;
   display: list-item;
   cursor: default;
 }
 
-.select2-results .select2-selected {
+.wave-select2-results .wave-select2-selected {
     display: none;
 }
 
-.select2-more-results.select2-active {
+.wave-select2-more-results.wave-select2-active {
     background: #f4f4f4 url('select2-spinner.gif') no-repeat 100%;
 }
 
-.select2-more-results {
+.wave-select2-more-results {
     background: #f4f4f4;
     display: list-item;
 }
 
 /* disabled styles */
 
-.select2-container.select2-container-disabled .select2-choice {
+.wave-select2-container.wave-select2-container-disabled .wave-select2-choice {
     background-color: #f4f4f4;
     background-image: none;
     border: 1px solid #ddd;
     cursor: default;
 }
 
-.select2-container.select2-container-disabled .select2-choice .select2-arrow {
+.wave-select2-container.wave-select2-container-disabled .wave-select2-choice .wave-select2-arrow {
     background-color: #f4f4f4;
     background-image: none;
     border-left: 0;
 }
 
-.select2-container.select2-container-disabled .select2-choice abbr {
+.wave-select2-container.wave-select2-container-disabled .wave-select2-choice abbr {
     display: none;
 }
 
 
 /* multiselect */
 
-.select2-container-multi .select2-choices {
+.wave-select2-container-multi .wave-select2-choices {
     height: auto !important;
     height: 1%;
     margin: 0;
@@ -456,36 +456,36 @@ disabled look for disabled choices in the results dropdown
     background-image: linear-gradient(to bottom, #eee 1%, #fff 15%);
 }
 
-.select2-locked {
+.wave-select2-locked {
   padding: 3px 5px 3px 5px !important;
 }
 
-.select2-container-multi .select2-choices {
+.wave-select2-container-multi .wave-select2-choices {
     min-height: 26px;
 }
 
-.select2-container-multi.select2-container-active .select2-choices {
+.wave-select2-container-multi.wave-select2-container-active .wave-select2-choices {
     border: 1px solid #5897fb;
     outline: none;
 
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
             box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
-.select2-container-multi .select2-choices li {
+.wave-select2-container-multi .wave-select2-choices li {
     float: left;
     list-style: none;
 }
-html[dir="rtl"] .select2-container-multi .select2-choices li
+html[dir="rtl"] .wave-select2-container-multi .wave-select2-choices li
 {
     float: right;
 }
-.select2-container-multi .select2-choices .select2-search-field {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-field {
     margin: 0;
     padding: 0;
     white-space: nowrap;
 }
 
-.select2-container-multi .select2-choices .select2-search-field input {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-field input {
     padding: 5px;
     margin: 1px 0;
 
@@ -499,15 +499,15 @@ html[dir="rtl"] .select2-container-multi .select2-choices li
     background: transparent !important;
 }
 
-.select2-container-multi .select2-choices .select2-search-field input.select2-active {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-field input.wave-select2-active {
     background: #fff url('select2-spinner.gif') no-repeat 100% !important;
 }
 
-.select2-default {
+.wave-select2-default {
     color: #999 !important;
 }
 
-.select2-container-multi .select2-choices .select2-search-choice {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-choice {
     padding: 3px 5px 3px 18px;
     margin: 3px 0 3px 5px;
     position: relative;
@@ -537,19 +537,19 @@ html[dir="rtl"] .select2-container-multi .select2-choices li
     background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
     background-image: linear-gradient(to top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
 }
-html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice
+html[dir="rtl"] .wave-select2-container-multi .wave-select2-choices .wave-select2-search-choice
 {
     margin-left: 0;
     margin-right: 5px;
 }
-.select2-container-multi .select2-choices .select2-search-choice .select2-chosen {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-choice .wave-select2-chosen {
     cursor: default;
 }
-.select2-container-multi .select2-choices .select2-search-choice-focus {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-choice-focus {
     background: #d4d4d4;
 }
 
-.select2-search-choice-close {
+.wave-select2-search-choice-close {
     display: block;
     width: 12px;
     height: 13px;
@@ -561,49 +561,49 @@ html[dir="rtl"] .select2-container-multi .select2-choices .select2-search-choice
     outline: none;
     background: url('select2.png') right top no-repeat;
 }
-html[dir="rtl"] .select2-search-choice-close {
+html[dir="rtl"] .wave-select2-search-choice-close {
     right: auto;
     left: 3px;
 }
 
-.select2-container-multi .select2-search-choice-close {
+.wave-select2-container-multi .wave-select2-search-choice-close {
     left: 3px;
 }
 
-.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close:hover {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-choice .wave-select2-search-choice-close:hover {
   background-position: right -11px;
 }
-.select2-container-multi .select2-choices .select2-search-choice-focus .select2-search-choice-close {
+.wave-select2-container-multi .wave-select2-choices .wave-select2-search-choice-focus .wave-select2-search-choice-close {
     background-position: right -11px;
 }
 
 /* disabled styles */
-.select2-container-multi.select2-container-disabled .select2-choices {
+.wave-select2-container-multi.wave-select2-container-disabled .wave-select2-choices {
     background-color: #f4f4f4;
     background-image: none;
     border: 1px solid #ddd;
     cursor: default;
 }
 
-.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice {
+.wave-select2-container-multi.wave-select2-container-disabled .wave-select2-choices .wave-select2-search-choice {
     padding: 3px 5px 3px 5px;
     border: 1px solid #ddd;
     background-image: none;
     background-color: #f4f4f4;
 }
 
-.select2-container-multi.select2-container-disabled .select2-choices .select2-search-choice .select2-search-choice-close {    display: none;
+.wave-select2-container-multi.wave-select2-container-disabled .wave-select2-choices .wave-select2-search-choice .wave-select2-search-choice-close {    display: none;
     background: none;
 }
 /* end multiselect */
 
 
-.select2-result-selectable .select2-match,
-.select2-result-unselectable .select2-match {
+.wave-select2-result-selectable .wave-select2-match,
+.wave-select2-result-unselectable .wave-select2-match {
     text-decoration: underline;
 }
 
-.select2-offscreen, .select2-offscreen:focus {
+.wave-select2-offscreen, .wave-select2-offscreen:focus {
     clip: rect(0 0 0 0) !important;
     width: 1px !important;
     height: 1px !important;
@@ -617,11 +617,11 @@ html[dir="rtl"] .select2-search-choice-close {
     top: 0px !important;
 }
 
-.select2-display-none {
+.wave-select2-display-none {
     display: none;
 }
 
-.select2-measure-scrollbar {
+.wave-select2-measure-scrollbar {
     position: absolute;
     top: -10000px;
     left: -10000px;
@@ -633,16 +633,16 @@ html[dir="rtl"] .select2-search-choice-close {
 /* Retina-ize icons */
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx)  {
-    .select2-search input,
-    .select2-search-choice-close,
-    .select2-container .select2-choice abbr,
-    .select2-container .select2-choice .select2-arrow b {
-        background-image: url('select2x2.png') !important;
+    .wave-select2-search input,
+    .wave-select2-search-choice-close,
+    .wave-select2-container .wave-select2-choice abbr,
+    .wave-select2-container .wave-select2-choice .wave-select2-arrow b {
+        background-image: url('wave-select2x2.png') !important;
         background-repeat: no-repeat !important;
         background-size: 60px 40px !important;
     }
 
-    .select2-search input {
+    .wave-select2-search input {
         background-position: 100% -21px !important;
     }
 }
