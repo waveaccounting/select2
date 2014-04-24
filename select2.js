@@ -42,7 +42,7 @@ the specific language governing permissions and limitations under the Apache Lic
     "use strict";
     /*global document, window, jQuery, console */
 
-    if (window.Select2 !== undefined) {
+    if (window.WaveSelect2 !== undefined) {
         return;
     }
 
@@ -427,7 +427,7 @@ the specific language governing permissions and limitations under the Apache Lic
             timeout = window.setTimeout(function () {
                 var data = options.data, // ajax data function
                     url = ajaxUrl, // ajax url string or function
-                    transport = options.transport || $.fn.select2.ajaxDefaults.transport,
+                    transport = options.transport || $.fn.waveselect2.ajaxDefaults.transport,
                     // deprecated - to be removed in 4.0  - use params instead
                     deprecated = {
                         type: options.type || 'GET', // set type of request (GET or POST)
@@ -435,7 +435,7 @@ the specific language governing permissions and limitations under the Apache Lic
                         jsonpCallback: options.jsonpCallback||undefined,
                         dataType: options.dataType||"json"
                     },
-                    params = $.extend({}, $.fn.select2.ajaxDefaults.params, deprecated);
+                    params = $.extend({}, $.fn.waveselect2.ajaxDefaults.params, deprecated);
 
                 data = data ? data.call(self, query.term, query.page, query.context) : null;
                 url = (typeof url === 'function') ? url.call(self, query.term, query.page, query.context) : url;
@@ -676,9 +676,9 @@ the specific language governing permissions and limitations under the Apache Lic
             this.id=opts.id;
 
             // destroy if called on an existing component
-            if (opts.element.data("select2") !== undefined &&
-                opts.element.data("select2") !== null) {
-                opts.element.data("select2").destroy();
+            if (opts.element.data("waveselect2") !== undefined &&
+                opts.element.data("waveselect2") !== null) {
+                opts.element.data("waveselect2").destroy();
             }
 
             this.container = this.createContainer();
@@ -707,19 +707,19 @@ the specific language governing permissions and limitations under the Apache Lic
 
             // swap container for the element
             this.opts.element
-                .data("select2", this)
+                .data("waveselect2", this)
                 .attr("tabindex", "-1")
                 .before(this.container)
-                .on("click.select2", killEvent); // do not leak click events
+                .on("click.waveselect2", killEvent); // do not leak click events
 
-            this.container.data("select2", this);
+            this.container.data("waveselect2", this);
 
             this.dropdown = this.container.find(".wave-select2-drop");
 
             syncCssClasses(this.dropdown, this.opts.element, this.opts.adaptDropdownCssClass);
 
             this.dropdown.addClass(evaluate(opts.dropdownCssClass));
-            this.dropdown.data("select2", this);
+            this.dropdown.data("waveselect2", this);
             this.dropdown.on("click", killEvent);
 
             this.results = results = this.container.find(resultsSelector);
@@ -814,20 +814,20 @@ the specific language governing permissions and limitations under the Apache Lic
 
         // abstract
         destroy: function () {
-            var element=this.opts.element, select2 = element.data("select2");
+            var element=this.opts.element, waveselect2 = element.data("waveselect2");
 
             this.close();
 
             if (this.propertyObserver) { delete this.propertyObserver; this.propertyObserver = null; }
 
-            if (select2 !== undefined) {
-                select2.container.remove();
-                select2.liveRegion.remove();
-                select2.dropdown.remove();
+            if (waveselect2 !== undefined) {
+                waveselect2.container.remove();
+                waveselect2.liveRegion.remove();
+                waveselect2.dropdown.remove();
                 element
                     .removeClass("wave-select2-offscreen")
-                    .removeData("select2")
-                    .off(".select2")
+                    .removeData("waveselect2")
+                    .off(".waveselect2")
                     .prop("autofocus", this.autofocus || false);
                 if (this.elementTabIndex) {
                     element.attr({tabindex: this.elementTabIndex});
@@ -926,7 +926,7 @@ the specific language governing permissions and limitations under the Apache Lic
                                 node.append(innerContainer);
                             }
 
-                            node.data("select2-data", result);
+                            node.data("waveselect2-data", result);
                             container.append(node);
                         }
 
@@ -935,18 +935,18 @@ the specific language governing permissions and limitations under the Apache Lic
 
                     populate(results, container, 0);
                 }
-            }, $.fn.select2.defaults, opts);
+            }, $.fn.waveselect2.defaults, opts);
 
             if (typeof(opts.id) !== "function") {
                 idKey = opts.id;
                 opts.id = function (e) { return e[idKey]; };
             }
 
-            if ($.isArray(opts.element.data("select2Tags"))) {
+            if ($.isArray(opts.element.data("waveselect2Tags"))) {
                 if ("tags" in opts) {
-                    throw "tags specified as both an attribute 'data-wave-select2-tags' and in options of Select2 " + opts.element.attr("id");
+                    throw "tags specified as both an attribute 'data-wave-waveselect2-tags' and in options of Select2 " + opts.element.attr("id");
                 }
-                opts.tags=opts.element.data("select2Tags");
+                opts.tags=opts.element.data("waveselect2Tags");
             }
 
             if (select) {
@@ -1043,8 +1043,8 @@ the specific language governing permissions and limitations under the Apache Lic
         monitorSource: function () {
             var el = this.opts.element, sync, observer;
 
-            el.on("change.select2", this.bind(function (e) {
-                if (this.opts.element.data("select2-change-triggered") !== true) {
+            el.on("change.waveselect2", this.bind(function (e) {
+                if (this.opts.element.data("waveselect2-change-triggered") !== true) {
                     this.initSelection();
                 }
             }));
@@ -1069,7 +1069,7 @@ the specific language governing permissions and limitations under the Apache Lic
             });
 
             // IE8-10
-            el.on("propertychange.select2", sync);
+            el.on("propertychange.waveselect2", sync);
 
             // hold onto a reference of the callback to work around a chromium bug
             if (this.mutationCallback === undefined) {
@@ -1103,9 +1103,9 @@ the specific language governing permissions and limitations under the Apache Lic
             details = details || {};
             details= $.extend({}, details, { type: "change", val: this.val() });
             // prevents recursive triggering
-            this.opts.element.data("select2-change-triggered", true);
+            this.opts.element.data("waveselect2-change-triggered", true);
             this.opts.element.trigger(details);
-            this.opts.element.data("select2-change-triggered", false);
+            this.opts.element.data("waveselect2-change-triggered", false);
 
             // some validation frameworks ignore the change event and listen instead to keyup, click for selects
             // so here we trigger the click event manually
@@ -1343,7 +1343,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
                     var dropdown = $("#wave-select2-drop"), self;
                     if (dropdown.length > 0) {
-                        self=dropdown.data("select2");
+                        self=dropdown.data("waveselect2");
                         if (self.opts.selectOnBlur) {
                             self.selectHighlighted({noFocus: true});
                         }
@@ -1519,7 +1519,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             this.liveRegion.text(choice.text());
 
-            data = choice.data("select2-data");
+            data = choice.data("waveselect2-data");
             if (data) {
                 this.opts.element.trigger({ type: "wave-select2-highlight", val: this.id(data), choice: data });
             }
@@ -1617,14 +1617,14 @@ the specific language governing permissions and limitations under the Apache Lic
                 self = this,
                 input,
                 term = search.val(),
-                lastTerm = $.data(this.container, "select2-last-term"),
+                lastTerm = $.data(this.container, "waveselect2-last-term"),
                 // sequence number used to drop out-of-order responses
                 queryNumber;
 
             // prevent duplicate queries against the same term
             if (initial !== true && lastTerm && equal(term, lastTerm)) return;
 
-            $.data(this.container, "select2-last-term", term);
+            $.data(this.container, "waveselect2-last-term", term);
 
             // if the search is currently hidden we do not alter the results
             if (initial !== true && (this.showSearchInput === false || !this.opened())) {
@@ -1781,7 +1781,7 @@ the specific language governing permissions and limitations under the Apache Lic
             }
             var index=this.highlight(),
                 highlighted=this.results.find(".wave-select2-highlighted"),
-                data = highlighted.closest('.wave-select2-result').data("select2-data");
+                data = highlighted.closest('.wave-select2-result').data("waveselect2-data");
 
             if (data) {
                 this.highlight(index);
@@ -2183,7 +2183,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
         // single
         clear: function(triggerChange) {
-            var data=this.selection.data("select2-data");
+            var data=this.selection.data("waveselect2-data");
             if (data) { // guard against queued quick consecutive clicks
                 var evt = $.Event("wave-select2-clearing");
                 this.opts.element.trigger(evt);
@@ -2307,7 +2307,7 @@ the specific language governing permissions and limitations under the Apache Lic
             // find the selected element in the result list
 
             this.findHighlightableChoices().each2(function (i, elm) {
-                if (equal(self.id(elm.data("select2-data")), self.opts.element.val())) {
+                if (equal(self.id(elm.data("waveselect2-data")), self.opts.element.val())) {
                     selected = i;
                     return false;
                 }
@@ -2374,7 +2374,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             var container=this.selection.find(".wave-select2-chosen"), formatted, cssClass;
 
-            this.selection.data("select2-data", data);
+            this.selection.data("waveselect2-data", data);
 
             container.empty();
             if (data !== null) {
@@ -2458,7 +2458,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 triggerChange = false;
 
             if (arguments.length === 0) {
-                data = this.selection.data("select2-data");
+                data = this.selection.data("waveselect2-data");
                 if (data == undefined) data = null;
                 return data;
             } else {
@@ -2988,7 +2988,7 @@ the specific language governing permissions and limitations under the Apache Lic
               }));
             }
 
-            choice.data("select2-data", data);
+            choice.data("waveselect2-data", data);
             choice.insertBefore(this.searchContainer);
 
             val.push(id);
@@ -3006,7 +3006,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 throw "Invalid argument: " + selected + ". Must be .wave-select2-search-choice";
             }
 
-            data = selected.data("select2-data");
+            data = selected.data("waveselect2-data");
 
             if (!data) {
                 // prevent a race condition when the 'x' is clicked really fast repeatedly the event can be queued
@@ -3045,7 +3045,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 self = this;
 
             choices.each2(function (i, choice) {
-                var id = self.id(choice.data("select2-data"));
+                var id = self.id(choice.data("waveselect2-data"));
                 if (indexOf(id, val) >= 0) {
                     choice.addClass("wave-select2-selected");
                     // mark all children of the selected parent as selected
@@ -3234,7 +3234,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             // update selection
             this.selection.find(".wave-select2-search-choice").each(function() {
-                val.push(self.opts.id($(this).data("select2-data")));
+                val.push(self.opts.id($(this).data("waveselect2-data")));
             });
             this.setVal(val);
             this.triggerChange();
@@ -3246,7 +3246,7 @@ the specific language governing permissions and limitations under the Apache Lic
             if (arguments.length === 0) {
                  return this.selection
                      .children(".wave-select2-search-choice")
-                     .map(function() { return $(this).data("select2-data"); })
+                     .map(function() { return $(this).data("waveselect2-data"); })
                      .get();
             } else {
                 old = this.data();
@@ -3262,11 +3262,11 @@ the specific language governing permissions and limitations under the Apache Lic
         }
     });
 
-    $.fn.select2 = function () {
+    $.fn.waveselect2 = function () {
 
         var args = Array.prototype.slice.call(arguments, 0),
             opts,
-            select2,
+            waveselect2,
             method, value, multiple,
             allowedMethods = ["val", "destroy", "opened", "open", "close", "focus", "isFocused", "container", "dropdown", "onSortStart", "onSortEnd", "enable", "disable", "readonly", "positionDropdown", "data", "search"],
             valueMethods = ["opened", "isFocused", "container", "dropdown"],
@@ -3285,8 +3285,8 @@ the specific language governing permissions and limitations under the Apache Lic
                     if ("tags" in opts) {opts.multiple = multiple = true;}
                 }
 
-                select2 = multiple ? new window.Select2["class"].multi() : new window.Select2["class"].single();
-                select2.init(opts);
+                waveselect2 = multiple ? new window.WaveSelect2["class"].multi() : new window.WaveSelect2["class"].single();
+                waveselect2.init(opts);
             } else if (typeof(args[0]) === "string") {
 
                 if (indexOf(args[0], allowedMethods) < 0) {
@@ -3294,19 +3294,19 @@ the specific language governing permissions and limitations under the Apache Lic
                 }
 
                 value = undefined;
-                select2 = $(this).data("select2");
-                if (select2 === undefined) return;
+                waveselect2 = $(this).data("waveselect2");
+                if (waveselect2 === undefined) return;
 
                 method=args[0];
 
                 if (method === "container") {
-                    value = select2.container;
+                    value = waveselect2.container;
                 } else if (method === "dropdown") {
-                    value = select2.dropdown;
+                    value = waveselect2.dropdown;
                 } else {
                     if (methodsMap[method]) method = methodsMap[method];
 
-                    value = select2[method].apply(select2, args.slice(1));
+                    value = waveselect2[method].apply(waveselect2, args.slice(1));
                 }
                 if (indexOf(args[0], valueMethods) >= 0
                     || (indexOf(args[0], propertyMethods) >= 0 && args.length == 1)) {
@@ -3320,7 +3320,7 @@ the specific language governing permissions and limitations under the Apache Lic
     };
 
     // plugin defaults, accessible to users
-    $.fn.select2.defaults = {
+    $.fn.waveselect2.defaults = {
         width: "copy",
         loadMorePadding: 0,
         closeOnSelect: true,
@@ -3378,7 +3378,7 @@ the specific language governing permissions and limitations under the Apache Lic
         }
     };
 
-    $.fn.select2.ajaxDefaults = {
+    $.fn.waveselect2.ajaxDefaults = {
         transport: $.ajax,
         params: {
             type: "GET",
@@ -3388,7 +3388,7 @@ the specific language governing permissions and limitations under the Apache Lic
     };
 
     // exports
-    window.Select2 = {
+    window.WaveSelect2 = {
         query: {
             ajax: ajax,
             local: local,
